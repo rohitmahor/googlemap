@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<input id="pac-input" class="controls" type="text"
+       placeholder="Enter a location">
+<div id="map"></div>
+<div id="infowindow-content">
+    <span id="place-name"  class="title"></span><br>
+    <b>Temperature: </b> <span id="temp"></span>&#8451;<br>
+    <b>Humidity: </b><span id="humidity"></span>%<br>
+    <b>Wind: </b><span id="wind"></span>Km/h<br>
+
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz75dRQjDrmzE64aDV3cbENEDDAY5pMsU&libraries=places&callback=initMap"
+        async defer></script>
+<script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

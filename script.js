@@ -56,7 +56,7 @@ function initMap() {
             });
 
             function infoContent(city1) {
-                $.get('http://api.openweathermap.org/data/2.5/weather?q='+city1+',in&APPID=7e3f0772cc9fd0ac421d526ec44cd9ac',function(result) {
+                $.get('http://api.openweathermap.org/data/2.5/weather?q='+city1+',in&APPID=7e3f0772cc9fd0ac421d526ec44cd9ac&callback?',function(result) {
                     // console.log(result);
                     marker.setVisible(true);
                     infowindowContent.children['place-name'].textContent = place.name;
@@ -66,6 +66,11 @@ function initMap() {
                     infowindow.open(map, marker);
                 });
             }
+
+            google.maps.event.addListener(marker, 'rightclick', function(event) {
+                infowindow.close();
+                marker.setMap(null);
+            });
         });
     });
 
@@ -85,7 +90,7 @@ function initMap() {
 
 
         function infoContent(lat,lng) {
-            $.get('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng+'&APPID=7e3f0772cc9fd0ac421d526ec44cd9ac',function(result){
+            $.get('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng+'&APPID=7e3f0772cc9fd0ac421d526ec44cd9ac&callback?',function(result){
                 // console.log(result);
                 marker.setVisible(true);
                 infowindowContent.children['place-name'].textContent = result.name+', India';
@@ -95,6 +100,11 @@ function initMap() {
                 infowindow.open(map, marker);
             });
         }
+
+        google.maps.event.addListener(marker, 'rightclick', function(event) {
+            infowindow.close();
+            marker.setMap(null);
+        });
 
     });
 
